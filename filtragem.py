@@ -3,8 +3,8 @@ import xml.etree.ElementTree as ET
 
 # Caminhos dos arquivos
 xml_file = "./Bases_originais/senadores.xml"
-csv_file = "./Bases_originais/2019.csv"
-csv_output = "./Bases_filtradas/2019_filtrado.csv"
+csv_file = "./Bases_originais/2022.csv"
+csv_output = "./Bases_filtradas/2022_filtrado.csv"
 
 # 1. Ler o XML e extrair os nomes dos senadores
 tree = ET.parse(xml_file)
@@ -44,40 +44,40 @@ df = df[df["Tipo de Serviço"] != "Seguro Viagem"]
 
 #4. Corrigir Valores
 
-# df["Tarifa"] = df["Tarifa"].fillna("").astype(str).str.strip() + df["Unnamed: 9"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 9"], inplace=True)
+df["Tarifa"] = df["Tarifa"].fillna("").astype(str).str.strip() + df["Unnamed: 9"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 9"], inplace=True)
 
 
-# df["Taxa de Embarque"] = df["Taxa de Embarque"].fillna("").astype(str).str.strip() + df["Unnamed: 11"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 11"], inplace=True)
+df["Taxa de Embarque"] = df["Taxa de Embarque"].fillna("").astype(str).str.strip() + df["Unnamed: 11"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 11"], inplace=True)
 
 
-# df["Multa/Remarcação"] = df["Multa/Remarcação"].fillna("").astype(str).str.strip() + df["Unnamed: 13"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 13"], inplace=True)
+df["Multa/Remarcação"] = df["Multa/Remarcação"].fillna("").astype(str).str.strip() + df["Unnamed: 13"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 13"], inplace=True)
 
 
-# df["Total"] = df["Total"].fillna("").astype(str).str.strip() + df["Unnamed: 15"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 15"], inplace=True)
+df["Total"] = df["Total"].fillna("").astype(str).str.strip() + df["Unnamed: 15"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 15"], inplace=True)
 
 
-# df["Desconto Contratual 0,04%"] = df["Desconto Contratual 0,04%"].fillna("").astype(str).str.strip() + df["Unnamed: 19"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 19", "Unnamed: 17"], inplace=True)
+df["Desconto Contratual 0,04%"] = df["Desconto Contratual 0,04%"].fillna("").astype(str).str.strip() + df["Unnamed: 19"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 19", "Unnamed: 17"], inplace=True)
 
 
-# df["Total com Desconto"] = df["Total com Desconto"].fillna("").astype(str).str.strip() + df["Unnamed: 21"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 21", "Unnamed: 24"], inplace=True)
+df["Total com Desconto"] = df["Total com Desconto"].fillna("").astype(str).str.strip() + df["Unnamed: 21"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 21", "Unnamed: 24"], inplace=True)
 
 
-# df["GRU / Diferença Tarifária"] = df["GRU / Diferença Tarifária"].fillna("").astype(str).str.strip() + df["Unnamed: 26"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 26"], inplace=True)
+df["GRU / Diferença Tarifária"] = df["GRU / Diferença Tarifária"].fillna("").astype(str).str.strip() + df["Unnamed: 26"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 26"], inplace=True)
 
 
-# df["Valor do Reembolso"] = df["Valor do Reembolso"].fillna("").astype(str).str.strip() + df["Unnamed: 28"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 28"], inplace=True)
+df["Valor do Reembolso"] = df["Valor do Reembolso"].fillna("").astype(str).str.strip() + df["Unnamed: 28"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 28"], inplace=True)
 
 
-# df["Custo Efetivo SF"] = df["Custo Efetivo Senado Federal"].fillna("").astype(str).str.strip() + df["Unnamed: 30"].fillna("").astype(str).str.strip()
-# df.drop(columns=["Unnamed: 30", "Unnamed: 31"], inplace=True)
+df["Custo Efetivo Senado Federal"] = df["Custo Efetivo Senado Federal"].fillna("").astype(str).str.strip() + df["Unnamed: 30"].fillna("").astype(str).str.strip()
+df.drop(columns=["Unnamed: 30", "Unnamed: 31"], inplace=True)
 
 df["Data de volta"] = df["Unnamed: 7"].fillna("").astype(str).str.strip()
 df.drop(columns=["Unnamed: 7"], inplace=True)
